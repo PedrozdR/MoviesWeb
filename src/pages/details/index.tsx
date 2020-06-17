@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Header from "../../components/header";
-import MovieService from '../../services/movie';
+
 import { IDetails, IVideo } from '../../services/models';
+import MovieService from '../../services/movie';
 import { RouteComponentProps } from 'react-router';
-import "./styles.scss";
 import Details from '../../components/details';
+import Header from "../../components/header";
+import "./styles.scss";
 
 interface MatchParams {
   id: string;

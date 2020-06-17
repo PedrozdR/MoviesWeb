@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Pagination from "react-js-pagination";
 
-
 import { IMovie, IGenre } from "../../services/models";
 import MovieService from "../../services/movie";
 import Header from "../../components/header";
@@ -49,8 +48,6 @@ export default function HomeScreen() {
         setPage(1);
         setSearched(data.results);
         setTotalPage(data.total_pages);
-        console.log(data.total_pages);
-
       }
     } catch (error) {
       console.log(error);
