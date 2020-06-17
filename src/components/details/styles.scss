@@ -1,0 +1,155 @@
+@import "../../styles/colors.scss";
+
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 32px;
+  background: nth($neutral, 2);
+  @media (max-width: 426px) and (min-width: 0px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .title {
+    font-size: 28px;
+    font-family: "Lato";
+    color: nth($main, 1);
+  }
+  h3 {
+    font-family: "Lato";
+    color: nth($neutral, 3);
+  }
+}
+.detailsContainer {
+  display: grid;
+  background: #f2f2f2;
+  grid-template-columns: 1fr 400px;
+  @media only screen and (max-width: 769px) {
+    grid-row: 2;
+    grid-column: 1;
+    grid-template-columns: 1fr;
+  }
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 32px;
+    @media only screen and (max-width: 425px) {
+      padding: 20px;
+    }
+    @media only screen and (max-width: 769px) {
+      grid-row: 2;
+      grid-column: 1;
+    }
+    .section {
+      margin-bottom: 12px;
+      .sectionHeader {
+        color: nth($main, 1);
+        font-family: "Lato";
+        padding-bottom: 8px;
+        border-bottom: solid 2px nth($main, 2);
+      }
+      .overview {
+        font-family: "Lato";
+        font-size: 20px;
+        font-weight: 500;
+      }
+      ul {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        list-style-type: none;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        @media only screen and (max-width: 1025px) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        @media only screen and (max-width: 425px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media only screen and (max-width: 375px) {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+          @media only screen and (max-width: 376px) {
+            align-items: flex-start;
+            grid-template-columns: repeat(1, 1fr);
+          }
+          h4 {
+            color: nth($main, 1);
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            font-family: "Lato";
+          }
+          p {
+            font-family: "Lato";
+            font-weight: 500;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .bottomContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      @media only screen and (max-width: 426px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .genres {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 20px 0px;
+      }
+      .grade {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 110px;
+        height: 110px;
+        color: nth($main, 2);
+        text-decoration: none;
+        background: nth($main, 1);
+        border: solid 4px nth($main, 2);
+        border-radius: 50%;
+        font-size: 28px;
+      }
+    }
+  }
+  figure {
+    margin: 0;
+    height: 100%;
+    picture {
+      img {
+        width: 100%;
+        height: 100%;
+        @media only screen and (max-width: 426px) {
+          grid-row: 1;
+          grid-column: 1;
+        }
+      }
+    }
+  }
+}
+iframe {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 800px;
+  margin: 30px 0px;
+  @media only screen and (max-width: 767px) {
+    min-height: 500px;
+  }
+  @media only screen and (max-width: 500px) {
+    min-height: 300px;
+  }
+}

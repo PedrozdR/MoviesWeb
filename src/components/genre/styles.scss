@@ -1,0 +1,17 @@
+@import "../../styles/colors.scss";
+
+.genre {
+  display: flex;
+  align-self: flex-end;
+  padding: 6px 20px 8px 20px;
+  margin-right: 14px;
+  background: nth($neutral, 1);
+  border: solid thin nth($main, 1);
+  border-radius: 20px;
+  margin: 8px 8px 8px 0px;
+  p {
+    color: nth($main, 1);
+    font-family: "Lato";
+    margin: 0;
+  }
+}

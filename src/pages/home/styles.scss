@@ -1,0 +1,43 @@
+@import "../../styles/colors.scss";
+
+.home {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  @media only screen and (max-width: 769px) {
+    padding: 10px;
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  outline: none;
+  padding: 0;
+  margin: 22px 0px;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: nth($main, 1);
+    margin: 8px;
+    &.active {
+      background: nth($main, 1);
+      border-radius: 50%;
+      padding: 4px 10px;
+      border: solid 4px nth($main, 2);
+      margin: 4px;
+      color: nth($neutral, 1);
+      a {
+        color: nth($main, 2);
+        font-size: 18px;
+      }
+    }
+  }
+  a {
+    color: nth($main, 1);
+  }
+}

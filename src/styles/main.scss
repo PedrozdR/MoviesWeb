@@ -1,0 +1,28 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Abel|Lato&display=swap");
+
+* {
+  min-height: 0;
+  min-width: 0;
+  box-sizing: border-box;
+  font-family: "Lato", "Abel", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", "Abel", sans-serif;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}

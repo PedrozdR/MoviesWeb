@@ -1,0 +1,81 @@
+@import "../../styles/colors.scss";
+
+.movieContainer {
+  display: grid;
+  grid-template-columns: 300px auto;
+  min-height: 480px;
+  margin: 32px 0px 0px 0px;
+  @media only screen and (max-width: 769px) {
+    grid-template-columns: 1fr;
+  }
+  picture {
+    min-width: 300px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .cardHeader {
+      display: flex;
+      flex-direction: row;
+      background: nth($main, 1);
+      padding: 4px 32px;
+      .grade {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        color: nth($main, 2);
+        text-decoration: none;
+        background: nth($main, 1);
+        border: solid 4px nth($main, 2);
+        border-radius: 50%;
+        position: absolute;
+      }
+      .title {
+        padding: 20px 0px 12px 100px;
+        color: nth($main, 2);
+        font-size: 28px;
+        margin: 0;
+        font-family: "Lato";
+        font-weight: 400;
+      }
+    }
+    .cardContent {
+      display: flex;
+      flex-direction: column;
+      background: nth($neutral, 2);
+      height: 100%;
+      .releaseDate {
+        margin: 10px 0px 12px 134px;
+        color: nth($neutral, 3);
+        font-family: "Lato";
+        font-weight: 400;
+      }
+      .container {
+        margin: 12px 38px;
+        .overview {
+          color: nth($neutral, 4);
+          margin: 0;
+          font-family: "Lato";
+          font-size: 20px;
+        }
+        .genres {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin: 20px 0px;
+        }
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
