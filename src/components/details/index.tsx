@@ -12,7 +12,6 @@ interface Props {
 export default function Details(props: Props) {
   const { movie, trailers } = props;
 
-
   return (
     <>
       <div className="cardHeader">
