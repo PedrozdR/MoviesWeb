@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Pagination from "react-js-pagination";
-
 import { IMovie, IGenre } from "../../services/models";
 import MovieService from "../../services/movie";
 import Header from "../../components/header";
@@ -15,9 +13,10 @@ export default function HomeScreen() {
   const [genres, setGenres] = useState<IGenre[]>([]);
   const [query, setQuery] = useState<string>("");
 
-  const [searchPage, setSearchPage] = useState<number>(1);
-  const [totalPage, setTotalPage] = useState<number>(1);
   const [page, setPage] = useState<number>(1);
+  const [searchPage, setSearchPage] = useState<number>(1);
+  const [totalPage, setTotalPage] = useState<number>(0);
+  const pageNumbers: number[] = [];
 
   useEffect(() => {
     getGenres();
@@ -29,6 +28,7 @@ export default function HomeScreen() {
     getGenres();
     getSearch(query, searchPage);
   }, [searchPage, query])
+
 
   async function getMovies(page: number) {
     try {
@@ -73,43 +73,56 @@ export default function HomeScreen() {
       getSearch(text.target.value, page);
     }
   }
+  function onBack() {
+    setPage(oldValue => oldValue - 1);
+  }
+
+  function onNext() {
+    setPage(oldValue => oldValue + 1);
+  }
+
+  for (let i = page; i < page + 5; i++) {
+    if (i <= totalPage) pageNumbers.push(i);
+  }
 
   return (
     <>
       <Header onClick={() => setPage(1)} />
       <div className="home">
         <Search placeholder="Busque um filme por nome, ano ou gênero..." onChange={(text) => handleChange(text)} value={query} />
-        {query.length > 0 ? (
+        {query !== "" ? (
           <>
             {searched.map((movie, index) => (
               <Card key={index} movie={movie} genres={genres} />
             ))}
-            <Pagination
-              hideDisabled
-              activePage={searchPage}
-              itemsCountPerPage={1}
-              totalItemsCount={totalPage}
-              lastPageText='Fim'
-              firstPageText='Início'
-              onChange={(index) => setSearchPage(index)}
-            />
-
+            <ul className="paginationContainer">
+              {pageNumbers.map(item => (
+                <li className={item === searchPage ? "active" : ''} key={item}>
+                  <a href="/#" onClick={() => { setSearchPage(item) }}>{item}</a>
+                </li>
+              ))}
+            </ul>
           </>
-
         ) : (
             <>
               {movies.map((movie, index) => (
                 <Card key={index} movie={movie} genres={genres} />
               ))}
-              <Pagination
-                hideDisabled
-                activePage={page}
-                itemsCountPerPage={1}
-                totalItemsCount={totalPage}
-                lastPageText='Fim'
-                firstPageText='Início'
-                onChange={(index) => setPage(index)}
-              />
+              <ul className="paginationContainer">
+                {page !== 1 &&
+                  <li>
+                    <a href="/#" onClick={onBack}>Voltar </a>
+                  </li>
+                }
+                {pageNumbers.map(item => (
+                  <li className={item === page ? "active" : ''} key={item}>
+                    <a href="/#" onClick={() => { setPage(item) }}>{item}</a>
+                  </li>
+                ))}
+                <li>
+                  <a href="/#" onClick={onNext}>Avançar </a>
+                </li>
+              </ul>
             </>
           )
         }
