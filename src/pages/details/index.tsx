@@ -5,7 +5,6 @@ import MovieService from '../../services/movie';
 import { RouteComponentProps } from 'react-router';
 import Details from '../../components/details';
 import Header from "../../components/header";
-import "./styles.scss";
 
 interface MatchParams {
   id: string;
