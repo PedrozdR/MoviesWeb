@@ -86,16 +86,15 @@ export default function HomeScreen() {
             ))}
             <Pagination
               hideDisabled
+              hideFirstLastPages
               activePage={searchPage}
               itemsCountPerPage={1}
               totalItemsCount={totalPage}
-              lastPageText='Fim'
-              firstPageText='Início'
+              prevPageText='Voltar'
+              nextPageText='Avançar'
               onChange={(index) => setSearchPage(index)}
             />
-
           </>
-
         ) : (
             <>
               {movies.map((movie, index) => (
@@ -103,11 +102,12 @@ export default function HomeScreen() {
               ))}
               <Pagination
                 hideDisabled
+                hideFirstLastPages
                 activePage={page}
                 itemsCountPerPage={1}
                 totalItemsCount={totalPage}
-                lastPageText='Fim'
-                firstPageText='Início'
+                prevPageText='Voltar'
+                nextPageText='Avançar'
                 onChange={(index) => setPage(index)}
               />
             </>

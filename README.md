@@ -37,3 +37,7 @@ Execute-o para instalar todas as depêndencias do projeto.
 `yarn start`
 
 Execute-o para iniciar o projeto, o mesmo será aberto automaticamente em http://localhost:3000 em seu navegador.
+
+
+## Observações 
+Como eu não sabia se era permitido utilizar algum tipo de biblioteca para facilitar o desenvolvimento da paginação da aplicação, resolvi então deixar na MASTER a paginação utilizando a biblioteca 'react-js-pagination' e na branch 'forpagination' eu mesmo desenvolvi a paginação. 
